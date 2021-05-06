@@ -1,0 +1,46 @@
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: #e8fde7;
+  outline: none;
+  width: 500px;
+  transition: all 0.5s;
+  font-family: 'Source Sans Pro';
+  position: relative;
+
+  ::placeholder {
+    color: #585858;
+    transition: all 0.5s;
+  }
+
+  &:focus-within,
+  &:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    ::placeholder {
+      color: black;
+    }
+  }
+
+  .input {
+    padding-left: 1rem;
+    width: 100%;
+  }
+
+  .button,
+  .input {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    outline: 0;
+  }
+}
