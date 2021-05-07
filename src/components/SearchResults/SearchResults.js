@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './SearchResults.module.scss';
+import React from "react";
+import styles from "./SearchResults.module.scss";
 
-export const SearchResults = ({ loading, results }) => {
+export const SearchResults = ({ addNomination, results, nominations }) => {
   return (
     <div className={styles.searchDisplay}>
       <ul className={styles.list}>
@@ -10,7 +10,16 @@ export const SearchResults = ({ loading, results }) => {
             <p>
               {result.title} ({result.year})
             </p>
-            <button>Nominate</button>
+            <button
+              disabled={
+                nominations.length > 0
+                  ? nominations.find((query) => query.id === result.id)
+                  : null
+              }
+              onClick={() => addNomination(result)}
+            >
+              Nominate
+            </button>
           </li>
         ))}
       </ul>

@@ -31,6 +31,8 @@
 
       p {
         font-weight: 800;
+        width: 90%;
+        padding-right: 1rem;
       }
 
       button {
@@ -47,6 +49,12 @@
         &:hover {
           background: #40753f;
           box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        &:disabled {
+          background: grey;
+          cursor: not-allowed;
+          box-shadow: none;
         }
       }
     }
