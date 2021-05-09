@@ -6,6 +6,7 @@ import { Nominations } from "./components/Nominations/Nominations";
 export const App = () => {
   const [results, setResults] = useState([]);
   const [nominations, setNominations] = useState([]);
+  const [show, setShow] = useState(false);
 
   const addNomination = (newNomination) => {
     if (nominations.length < 5) {
@@ -24,6 +25,8 @@ export const App = () => {
         setResults={setResults}
         addNomination={addNomination}
         nominations={nominations}
+        show={show}
+        setShow={setShow}
       />
       <Nominations nominations={nominations} />
     </div>

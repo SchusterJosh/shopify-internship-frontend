@@ -3,9 +3,15 @@ import styles from "./Search.module.scss";
 import { SearchResults } from "../SearchResults/SearchResults";
 import axios from "axios";
 
-export const Search = ({ results, setResults, addNomination, nominations }) => {
+export const Search = ({
+  results,
+  setResults,
+  addNomination,
+  nominations,
+  show,
+  setShow,
+}) => {
   const [query, setQuery] = useState("");
-  const [show, setShow] = useState(false);
 
   const onChange = async (e) => {
     if (e.target.value.length > 0) {
@@ -21,9 +27,12 @@ export const Search = ({ results, setResults, addNomination, nominations }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.post("http://localhost:5000/api/search", {
-        query,
-      });
+      const result = await axios.post(
+        "https://shopify-internship-backend-js.herokuapp.com/api/search",
+        {
+          query,
+        }
+      );
       setResults(result.data.result);
     };
 
@@ -31,7 +40,11 @@ export const Search = ({ results, setResults, addNomination, nominations }) => {
   }, [query, setResults]);
 
   return (
-    <div className={styles.search}>
+    <div
+      className={`${styles.search} ${
+        nominations.length === 5 ? "disabled" : null
+      }`}
+    >
       <svg
         width='34'
         height='34'
@@ -57,6 +70,7 @@ export const Search = ({ results, setResults, addNomination, nominations }) => {
           addNomination={addNomination}
           nominations={nominations}
           results={results.slice(0, 5)}
+          setQuery={setQuery}
         />
       ) : null}
     </div>

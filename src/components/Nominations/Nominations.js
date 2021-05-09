@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Nominations.module.scss";
 
 export const Nominations = ({ nominations }) => {
-  console.log(nominations.length);
   return (
     <div className={styles.container}>
       <h1>Nominations</h1>
@@ -10,18 +9,20 @@ export const Nominations = ({ nominations }) => {
         {nominations.length > 0 ? (
           nominations.map((nomination) => (
             <div className={styles.card}>
-              <p>{nomination.title}</p>
+              <p>
+                {nomination.title} ({nomination.year})
+              </p>
               <img
                 src={`https://image.tmdb.org/t/p/w200${nomination.poster}`}
-                alt=''
+                alt={`A poster for the movie ${nomination.title}`}
               />
             </div>
           ))
         ) : (
-          <p1>
+          <p>
             No nominations selected. Search for a movie and add it to your
             nominations list.
-          </p1>
+          </p>
         )}
       </div>
     </div>

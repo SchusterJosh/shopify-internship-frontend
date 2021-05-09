@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./SearchResults.module.scss";
 
-export const SearchResults = ({ addNomination, results, nominations }) => {
+export const SearchResults = ({
+  addNomination,
+  results,
+  nominations,
+  setQuery,
+}) => {
   return (
     <div className={styles.searchDisplay}>
       <ul className={styles.list}>
@@ -16,7 +21,10 @@ export const SearchResults = ({ addNomination, results, nominations }) => {
                   ? nominations.find((query) => query.id === result.id)
                   : null
               }
-              onClick={() => addNomination(result)}
+              onClick={() => {
+                addNomination(result);
+                setQuery("");
+              }}
             >
               Nominate
             </button>
