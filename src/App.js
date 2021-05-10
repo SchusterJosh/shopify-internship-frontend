@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './App.module.scss';
+import { Banner } from './components/Banner/Banner';
 import { Header } from './components/Header/Header';
 import { Nominations } from './components/Nominations/Nominations';
 
@@ -35,6 +36,7 @@ export const App = () => {
         show={show}
         setShow={setShow}
       />
+      {nominations.length === 5 ? <Banner /> : null}
       <Nominations
         nominations={nominations}
         removeNomination={removeNomination}
