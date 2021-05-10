@@ -4,12 +4,12 @@
   border-radius: 10px 10px 0 0;
   background: #adddec;
   color: #305271;
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   font-weight: 700;
   margin-top: 2rem;
   text-align: center;
 
-  .nominations_cards {
+  .nominationsCards {
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -19,6 +19,10 @@
 
     .card {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       border-radius: 5px;
       padding: 1rem;
       transition: all 0.4s;
@@ -36,8 +40,59 @@
       }
 
       img {
-        width: 100%;
+        width: 200px;
         border-radius: 2px;
+      }
+
+      .remove {
+        background: #ec3616;
+        color: white;
+        border: none;
+        width: 120px;
+        height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1rem;
+        margin-top: 10px;
+
+        &:hover {
+          background: #921d08;
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.37);
+        }
+      }
+    }
+
+    .noNominations {
+      margin: 0 auto;
+      grid-column: 1/-1;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    .nominationsCards {
+      grid-template-columns: 1fr 1fr;
+
+      .card img {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    .nominationsCards {
+      grid-template-columns: 1fr;
+
+      .card {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        cursor: pointer;
+        background: darken(#305271, 1%);
+        color: white;
       }
     }
   }

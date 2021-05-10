@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "./App.module.scss";
-import { Header } from "./components/Header/Header";
-import { Nominations } from "./components/Nominations/Nominations";
+import React, { useState } from 'react';
+import styles from './App.module.scss';
+import { Header } from './components/Header/Header';
+import { Nominations } from './components/Nominations/Nominations';
 
 export const App = () => {
   const [results, setResults] = useState([]);
@@ -18,6 +18,13 @@ export const App = () => {
     }
   };
 
+  const removeNomination = (selected) => {
+    let newNominationsList = [...nominations].filter(
+      (nomination) => nomination.id !== selected.id
+    );
+    setNominations(newNominationsList);
+  };
+
   return (
     <div className={styles.container}>
       <Header
@@ -28,7 +35,10 @@ export const App = () => {
         show={show}
         setShow={setShow}
       />
-      <Nominations nominations={nominations} />
+      <Nominations
+        nominations={nominations}
+        removeNomination={removeNomination}
+      />
     </div>
   );
 };

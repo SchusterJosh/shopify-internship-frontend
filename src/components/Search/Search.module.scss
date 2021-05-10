@@ -9,10 +9,10 @@
   border-radius: 10px;
   background-color: #e8fde7;
   outline: none;
-  width: 100%;
+  width: 80%;
   max-width: 500px;
   transition: all 0.5s;
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   position: relative;
 
   ::placeholder {
@@ -43,5 +43,18 @@
     color: inherit;
     font: inherit;
     outline: 0;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .search {
+    padding: 1rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .search {
+    padding: 1rem 1rem;
+    width: 100%;
   }
 }

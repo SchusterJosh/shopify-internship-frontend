@@ -1,11 +1,13 @@
-import React from "react";
-import styles from "./SearchResults.module.scss";
+import React from 'react';
+import styles from './SearchResults.module.scss';
 
 export const SearchResults = ({
   addNomination,
   results,
   nominations,
   setQuery,
+  setResults,
+  setShow,
 }) => {
   return (
     <div className={styles.searchDisplay}>
@@ -23,7 +25,9 @@ export const SearchResults = ({
               }
               onClick={() => {
                 addNomination(result);
-                setQuery("");
+                setQuery('');
+                setResults([]);
+                setShow(false);
               }}
             >
               Nominate
